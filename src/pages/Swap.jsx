@@ -1,4 +1,4 @@
-// src/components/sections/SwapSection.jsx
+// src/pages/Swap.jsx
 import React, { useState } from "react";
 
 function TokenPill({ symbol, label }) {
@@ -16,7 +16,6 @@ function TokenPill({ symbol, label }) {
 function AmountRow({ side, token, balanceLabel, amount, onChange }) {
   return (
     <div className="rounded-2xl bg-[#050816] border border-slate-800/90 px-4 py-3.5">
-      {/* header */}
       <div className="flex items-center justify-between mb-2">
         <span className="text-[11px] font-medium text-slate-300">
           {side}
@@ -26,7 +25,6 @@ function AmountRow({ side, token, balanceLabel, amount, onChange }) {
         </span>
       </div>
 
-      {/* content */}
       <div className="flex items-center justify-between gap-3">
         <TokenPill symbol={token} label={token} />
         <div className="flex-1 text-right">
@@ -43,7 +41,7 @@ function AmountRow({ side, token, balanceLabel, amount, onChange }) {
   );
 }
 
-export default function SwapSection() {
+export default function SwapPage() {
   const [sellToken] = useState("ETH");
   const [buyToken] = useState("AERO");
   const [sellAmount, setSellAmount] = useState("");
@@ -52,9 +50,7 @@ export default function SwapSection() {
   return (
     <div className="mt-10 flex justify-center">
       <div className="w-full max-w-lg">
-        {/* main card */}
         <div className="rounded-[24px] bg-[#020617]/90 border border-slate-900 shadow-[0_24px_60px_rgba(0,0,0,0.8)] px-6 py-7">
-          {/* Sell */}
           <AmountRow
             side="Sell"
             token={sellToken}
@@ -63,14 +59,12 @@ export default function SwapSection() {
             onChange={(e) => setSellAmount(e.target.value)}
           />
 
-          {/* arrow */}
           <div className="flex justify-center my-4">
             <div className="h-9 w-9 rounded-full bg-[#020617] border border-slate-800 flex items-center justify-center text-slate-300">
               <span className="text-base">↓</span>
             </div>
           </div>
 
-          {/* Buy */}
           <AmountRow
             side="Buy"
             token={buyToken}
@@ -80,7 +74,6 @@ export default function SwapSection() {
           />
         </div>
 
-        {/* swap button */}
         <button className="mt-6 w-full h-12 rounded-full bg-[#2555ff] hover:bg-[#2f63ff] text-sm font-semibold text-white shadow-[0_16px_40px_rgba(37,85,255,0.7)] transition">
           Swap
         </button>
